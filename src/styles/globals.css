@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 26, 15, 8;
+  --background-end-rgb: 45, 10, 6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 26, 15, 8;
+    --background-end-rgb: 45, 10, 6;
+  }
+}
+
+@layer base {
+  body {
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(var(--background-start-rgb), .95) 60%,
+      rgba(var(--background-end-rgb), 1) 100%
+    );
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-playfair {
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .font-mono {
+    font-family: 'Inter', monospace;
+  }
+}
+
+/* Animación fadeIn */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a0f08;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #FF4500 0%, #FF1744 100%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #FF6B3A 0%, #FF2D55 100%);
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
